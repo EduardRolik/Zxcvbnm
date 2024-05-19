@@ -34,4 +34,4 @@ int main()
     scanf("%d", &x); 
     } while(x==1);
     return 0;
-}
+}q
