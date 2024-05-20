@@ -15,4 +15,4 @@ int main() {
     printf("Измененная строка: %s\n", str); 
  
     return 0; 
-}й
+}
