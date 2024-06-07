@@ -15,7 +15,7 @@ int main() {
 
     FILE  * file = fopen("people.txt", "r");
     if (file == NULL) {
-        perror("Ошибка при открытии файла");
+        perror("Ошибка при открытии файла :( ");
         return EXIT_FAILURE;
     }
 
@@ -27,7 +27,7 @@ int main() {
         
         people = (humen  * ) realloc(people, (size + 1)  *  sizeof(humen));
         if (people == NULL) {
-            perror("Ошибка при выделении памяти");
+            perror("Ошибка при выделении памяти :( ");
             fclose(file);
             return EXIT_FAILURE;
         }
@@ -40,7 +40,7 @@ int main() {
 
     sortedPeople = (humen  * ) malloc(size  *  sizeof(humen));
     if (sortedPeople == NULL) {
-        perror("Ошибка при выделении памяти");
+        perror("Ошибка при выделении памяти :( ");
         free(people);
         return EXIT_FAILURE;
     }
