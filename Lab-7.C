@@ -1,3 +1,4 @@
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,9 +9,9 @@ typedef struct {
 } humen;
 
 int main() {
-    const int ARRAY_SIZE = 8; 
-    humen people[ARRAY_SIZE]; 
-    humen sortedPeople[ARRAY_SIZE]; 
+    humen  * people = NULL;
+    humen  * sortedPeople = NULL;
+    int size = 0;
 
     FILE  * file = fopen("people.txt", "r");
     if (file == NULL) {
@@ -18,22 +19,38 @@ int main() {
         return EXIT_FAILURE;
     }
 
-    
-    for (int i = 0; i < ARRAY_SIZE; ++i) {
-        fscanf(file, "%49s %49s %d", people[i].name, people[i].surname, &people[i].year);
+    while (1) {
+        humen person;
+        if (fscanf(file, "%49s %49s %d", person.name, person.surname, &person.year) != 3) {
+            break;
+        }
+        
+        people = (humen  * ) realloc(people, (size + 1)  *  sizeof(humen));
+        if (people == NULL) {
+            perror("Ошибка при выделении памяти");
+            fclose(file);
+            return EXIT_FAILURE;
+        }
+        
+        memcpy(&people[size], &person, sizeof(humen));
+        size++;
     }
 
-    
     fclose(file);
 
-    
-    for (int i = 0; i < ARRAY_SIZE; ++i) {
+    sortedPeople = (humen  * ) malloc(size  *  sizeof(humen));
+    if (sortedPeople == NULL) {
+        perror("Ошибка при выделении памяти");
+        free(people);
+        return EXIT_FAILURE;
+    }
+
+    for (int i = 0; i < size; ++i) {
         sortedPeople[i] = people[i];
     }
 
-    
-    for (int i = 0; i < ARRAY_SIZE - 1; ++i) {
-        for (int j = 0; j < ARRAY_SIZE - i - 1; ++j) {
+    for (int i = 0; i < size - 1; ++i) {
+        for (int j = 0; j < size - i - 1; ++j) {
             if (sortedPeople[j].year > sortedPeople[j + 1].year) {
                 humen temp = sortedPeople[j];
                 sortedPeople[j] = sortedPeople[j + 1];
@@ -42,10 +59,12 @@ int main() {
         }
     }
 
-    
-    for (int i = 0; i < ARRAY_SIZE; ++i) {
+    for (int i = 0; i < size; ++i) {
         printf("%s %s %d\n", sortedPeople[i].name, sortedPeople[i].surname, sortedPeople[i].year);
     }
+
+    free(sortedPeople);
+    free(people);
 
     return EXIT_SUCCESS;
 }
