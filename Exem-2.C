@@ -80,7 +80,7 @@ int main() {
         }
     }
 
-    printf("Матрица x_x:\n");
+    printf("Матрица +_+:\n");
     for (i = 0; i < M; i++) {
         for (j = 0; j < 2; j++) {
             printf("%d ", matrix[i][j]);
@@ -88,14 +88,14 @@ int main() {
         printf("\n");
     }
 
-    printf("Сумма строк +_+: %d\n", sum_rows);
-    printf("Сумма столбцов +_+: %d\n", sum_cols);
+    printf("Сумма строк O_o: %d\n", sum_rows);
+    printf("Сумма столбцов o_O: %d\n", sum_cols);
 
     start = clock();
     end = clock();
 
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("Время затраченное программой O_O: %f секунд <3\n", cpu_time_used);
+    printf("Время затраченное программой x_x: %f секунд <3\n", cpu_time_used);
 
     return 0;
 }
