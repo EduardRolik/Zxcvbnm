@@ -24,7 +24,7 @@ int main() {
         timeinfo.tm_mday = day;
         mktime(&timeinfo);
 
-        char weekday[25]; // Увеличен размер массива до 25 символов
+        char weekday[25];
         switch (timeinfo.tm_wday) {
             case 0:
                 strcpy(weekday, "Воскресенье");
@@ -57,7 +57,7 @@ int main() {
         timeinfo.tm_mday = 1;
         mktime(&timeinfo);
 
-        char monthname[20]; // Размер массива достаточен для хранения названий месяцев
+        char monthname[20];
         switch (timeinfo.tm_mon) {
             case 0:
                 strcpy(monthname, "Январь");
