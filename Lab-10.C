@@ -6,10 +6,10 @@ int main() {
   int numbers[100]; 
   int count; 
  
-  printf("Введите количество чисел: "); 
+  printf("Введите количество чисел O_O: "); 
   scanf("%d", &count); 
  
-  printf("Введите числа через пробел: "); 
+  printf("Введите числа через пробел o_o: "); 
   for (int i = 0; i < count; i++) { 
     scanf("%d", &numbers[i]); 
   } 
@@ -19,7 +19,7 @@ int main() {
     max = MAX(max, numbers[i]); 
   } 
  
-  printf("Максимальное число: %d\n", max); 
+  printf("Максимальное число X_X: %d\n", max); 
  
   return 0; 
 }
