@@ -73,7 +73,7 @@ int main()
     printf("Сумма: %.2f\n", sumResult); 
     printf("Максимум: %.2f\n", maxResult); 
     printf("Минимум: %.2f\n", minResult); 
-    printf("Среднее арифметическое: %.2f\n", averageResult); 
+    printf("Среднее арифметическое O_O: %.2f\n", averageResult); 
  
     return 0; 
 }
